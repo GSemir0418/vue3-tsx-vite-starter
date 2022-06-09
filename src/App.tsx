@@ -1,4 +1,6 @@
 import { withModifiers, defineComponent, ref } from "vue";
+import { RouterView } from "vue-router";
+import { Welcome } from "./views/Welcome";
 
 export const App = defineComponent({
   setup() {
@@ -9,7 +11,10 @@ export const App = defineComponent({
     };
 
     return () => (
-      <div onClick={withModifiers(inc, ["self"])}>{count.value}</div>
+      <>
+        <div onClick={withModifiers(inc, ["self"])}>{count.value}</div>
+        <RouterView />
+      </>
     );
   },
 });
